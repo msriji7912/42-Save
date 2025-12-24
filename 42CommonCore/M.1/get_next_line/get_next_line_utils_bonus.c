@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/01 10:31:04 by mosriji           #+#    #+#             */
-/*   Updated: 2025/12/02 11:18:05 by mosriji          ###   ########.fr       */
+/*   Created: 2025/12/16 08:23:33 by mosriji           #+#    #+#             */
+/*   Updated: 2025/12/16 13:29:11 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
-size_t	ft_strlen(char *str)
+size_t	ft_strlen(const char *str)
 {
 	size_t	i;
 
@@ -40,20 +40,20 @@ char	*ft_strdup(char *s)
 	return (str);
 }
 
-char	*ft_strchr(char *str, int c)
+long	search_n(char *str)
 {
 	size_t	i;
 
 	i = 0;
+	if (!str)
+		return (-1);
 	while (str[i])
 	{
-		if (str[i] == (char) c)
-			return (&str[i]);
+		if (str[i] == '\n')
+			return (i);
 		i++;
 	}
-	if ((char)c == '\0')
-		return (&str[i]);
-	return (&str[i]);
+	return (-1);
 }
 
 char	*ft_strjoin(char *s1, char *s2)
@@ -78,6 +78,7 @@ char	*ft_strjoin(char *s1, char *s2)
 		i++;
 		j++;
 	}
+	str[i] = '\0';
 	return (str);
 }
 
@@ -112,10 +113,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 /*
 int	main(void)
 {
-	char	*s1 = "mamKa";
-	int		c = 'K';
+	char	*str = "mamamia";
 	
-	printf("%s", ft_strchr(s1, c));
+	printf("%s", ft_substr(str, 0, 4));
 	return(0);
 }
 */

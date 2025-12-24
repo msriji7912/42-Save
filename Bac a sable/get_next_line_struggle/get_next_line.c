@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_moha.c                               :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/02 10:30:33 by mosriji           #+#    #+#             */
-/*   Updated: 2025/12/06 11:43:26 by mosriji          ###   ########.fr       */
+/*   Created: 2025/12/01 12:40:46 by mosriji           #+#    #+#             */
+/*   Updated: 2025/12/16 08:17:18 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
+#include "get_next_line.h"
 
 void	find_line(char **stash, char *buf, char **tmp, int fd)
 {
@@ -25,15 +25,15 @@ void	find_line(char **stash, char *buf, char **tmp, int fd)
 			*stash = NULL;
 			break ;
 		}
+		buf[r] = '\0';
 		if (r == 0)
 			break ;
-		buf[r] = '\0';
 		if (!*stash)
 			*stash = ft_strdup(buf);
 		else
 		{
 			*tmp = ft_strjoin(*stash, buf);
-			free(*stash); 
+			free(*stash);
 			*stash = *tmp;
 		}
 		if (search_n(*stash) != -1)
@@ -86,30 +86,32 @@ char	*extract_line_from_stash(char **stash)
 	*stash = NULL;
 	return (line);
 }
+/*
+int main(int ac, char **av)
+{
+    int     fd;
+    char    *line;
 
-// int main(int ac, char **av)
-// {
-//     if (ac != 2)
-//     {
-//         printf("Usage: %s <file>\n", av[0]);
-//         return (1);
-//     }
+    if (ac != 2)
+    {
+        printf("Usage: %s <file>\n", av[0]);
+        return (1);
+    }
 
-//     int fd = open("pablito.txt", O_RDONLY);
-//     if (fd < 0)
-//     {
-//         perror("open");
-//         return (1);
-//     }
+    fd = open(av[1], O_RDONLY);
+    if (fd < 0)
+    {
+        perror("open");
+        return (1);
+    }
 
-//     char *line = get_next_line(fd);
-//     if (line)
-//     {
-//         printf("%s", line);
-//         free(line);
-//     }
+    while ((line = get_next_line(fd)))
+    {
+        printf("%s", line);
+        free(line);
+    }
 
-//     close(fd);
-//     return (0);
-// }
-
+    close(fd);
+    return (0);
+}
+*/

@@ -6,7 +6,7 @@
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 22:01:09 by mosriji           #+#    #+#             */
-/*   Updated: 2025/11/28 16:44:07 by mosriji          ###   ########.fr       */
+/*   Updated: 2025/12/11 17:10:11 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	ft_printf(const char *format, ...)
 	va_end(ap);
 	return (count);
 }
-/*
+
 int	main(void)
 {
 	//ft_printf("yay: %d\n", );
@@ -65,4 +65,3 @@ int	main(void)
 	printf("%d", printf(NULL));
 	return (0);
 }
-*/
