@@ -1,48 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rstr_capitalizer.c                                 :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/01 13:27:10 by mosriji           #+#    #+#             */
-/*   Updated: 2026/01/06 16:39:23 by mosriji          ###   ########.fr       */
+/*   Created: 2026/01/06 11:08:58 by mosriji           #+#    #+#             */
+/*   Updated: 2026/01/06 11:16:29 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <unistd.h>
 
-void rstr_cap(char *str)
+char    *ft_strrev(char *str)
 {
     int i;
-
+    int len;
+    char tmp;
+    
     i = 0;
+    len = 0;
+    while (str[len])
+        len++;
+    len--;
     while (str[i])
     {
-        if (str[i] >= 'A' && str[i] <= 'Z')
-            str[i] += 32;
-        if (str[i + 1] == ' ' || str[i + 1] == '\t')
-        {
-            if (str[i] >= 'a' && str[i] <= 'z')
-                str[i] -= 32;
-        }
-        write(1, &str[i], 1);
+        tmp = str[i];
+        str[i] = str[len];
+        str[len] = tmp;
         i++;
+        len--;
     }
+    return (str);
 }
 
-int main (int ac, char *av[])
+int main(void)
 {
-    int i;
-    
-    i = 1;
-    if (ac == 1)
-        write(1, "\n", 1);
-    while (i < ac)
-    {
-        rstr_cap(av[i]);
-        i++;
-    }
+    char str[] = "mama mia";
+    printf("%s", ft_strrev(str));
     return (0);
 }

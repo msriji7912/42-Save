@@ -1,48 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rstr_capitalizer.c                                 :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/01 13:27:10 by mosriji           #+#    #+#             */
-/*   Updated: 2026/01/06 16:39:23 by mosriji          ###   ########.fr       */
+/*   Created: 2026/01/06 10:53:06 by mosriji           #+#    #+#             */
+/*   Updated: 2026/01/06 11:08:32 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
 
-void rstr_cap(char *str)
+char    *ft_strdup(char *src)
 {
     int i;
+    int len;
+    char *dst;
 
     i = 0;
-    while (str[i])
+    len = 0;
+    while (src[len])
+        len++;
+    dst = malloc(sizeof(char) * len + 1);
+    if (!dst)
+        return (NULL);
+    while (src[i])
     {
-        if (str[i] >= 'A' && str[i] <= 'Z')
-            str[i] += 32;
-        if (str[i + 1] == ' ' || str[i + 1] == '\t')
-        {
-            if (str[i] >= 'a' && str[i] <= 'z')
-                str[i] -= 32;
-        }
-        write(1, &str[i], 1);
+        dst[i] = src[i];
         i++;
     }
+    return (dst);
 }
 
-int main (int ac, char *av[])
+int main(void)
 {
-    int i;
-    
-    i = 1;
-    if (ac == 1)
-        write(1, "\n", 1);
-    while (i < ac)
-    {
-        rstr_cap(av[i]);
-        i++;
-    }
+    char *src = "mama mia";
+    printf("%s", ft_strdup(src));
     return (0);
 }

@@ -1,48 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rstr_capitalizer.c                                 :+:      :+:    :+:   */
+/*   union.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/01 13:27:10 by mosriji           #+#    #+#             */
-/*   Updated: 2026/01/06 16:39:23 by mosriji          ###   ########.fr       */
+/*   Created: 2026/01/06 11:24:39 by mosriji           #+#    #+#             */
+/*   Updated: 2026/01/06 11:29:38 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <unistd.h>
 
-void rstr_cap(char *str)
+void unionn(char *s1, char *s2)
 {
     int i;
+    char tab[256] = {0};
 
     i = 0;
-    while (str[i])
+    while (s1[i])
     {
-        if (str[i] >= 'A' && str[i] <= 'Z')
-            str[i] += 32;
-        if (str[i + 1] == ' ' || str[i + 1] == '\t')
+        write(1, &s1[i], 1);
+        tab[(int)s1[i]] = 1;
+        i++;
+    }
+    i = 0;
+    while (s2[i])
+    {
+        if (tab[(int)s2[i]] == 0)
         {
-            if (str[i] >= 'a' && str[i] <= 'z')
-                str[i] -= 32;
+            write(1, &s2[i], 1);
+            tab[(int)s2[i]] = 1;
         }
-        write(1, &str[i], 1);
         i++;
     }
 }
 
-int main (int ac, char *av[])
+int main(int ac, char *av[])
 {
     int i;
-    
-    i = 1;
-    if (ac == 1)
-        write(1, "\n", 1);
-    while (i < ac)
-    {
-        rstr_cap(av[i]);
-        i++;
-    }
+
+    i = 0;
+    if (ac == 3)
+        unionn(av[1], av[2]);
+    write(1, "\n", 1);
     return (0);
 }

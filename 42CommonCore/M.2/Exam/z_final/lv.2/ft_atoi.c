@@ -1,46 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rstr_capitalizer.c                                 :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/03 14:38:22 by mosriji           #+#    #+#             */
-/*   Updated: 2026/01/03 14:46:51 by mosriji          ###   ########.fr       */
+/*   Created: 2026/01/06 10:43:14 by mosriji           #+#    #+#             */
+/*   Updated: 2026/01/06 10:47:21 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <unistd.h>
 
-void rstr_cap(char *str)
+int	ft_atoi(const char *str)
 {
     int i;
+    int res;
+    int signe;
 
     i = 0;
-    while (str[i])
+    res = 0;
+    signe = 1;
+    while (str[i] == ' ' || str[i] == '\t')
+        i++;
+    while (str[i] == '+' || str[i] == '-')
     {
-        if (str[i] >= 'A' && str[i] <= 'Z')
-            str[i] += 32;
-        else if ((str[i+1] == ' ' || str[i+1] == '\t' || str[i+1] == '\0') && (str[i] >= 'a' && str[i] <= 'z'))
-            str[i] -= 32;
-        write(1, &str[i], 1);
+        if (str[i] == '-')
+            signe *= -1;
         i++;
     }
+    while (str[i] >= '0' && str[i] <= '9')
+    {
+        res = res * 10 + (str[i] -'0');
+        i++;
+    }
+    return (res * signe);
 }
 
-int main(int ac, char *av[])
+int main (void)
 {
-    int i;
-
-    i = 1;
-    if (ac == 1)
-        write(1, "\n", 1);
-    else
-    {
-        if (i < ac)
-            rstr_cap(av[i]);
-        i++;
-    }
+    const char *str = "7912";
+    printf("%d", ft_atoi(str));
     return (0);
 }

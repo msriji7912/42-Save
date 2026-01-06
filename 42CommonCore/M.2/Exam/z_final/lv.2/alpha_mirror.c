@@ -1,48 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rstr_capitalizer.c                                 :+:      :+:    :+:   */
+/*   alpha_mirror.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/01 13:27:10 by mosriji           #+#    #+#             */
-/*   Updated: 2026/01/06 16:39:23 by mosriji          ###   ########.fr       */
+/*   Created: 2026/01/06 09:58:54 by mosriji           #+#    #+#             */
+/*   Updated: 2026/01/06 10:02:25 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <stdint.h>
 #include <unistd.h>
 
-void rstr_cap(char *str)
+int main(int ac, char *av[])
 {
     int i;
 
     i = 0;
-    while (str[i])
+    if (ac == 2)
     {
-        if (str[i] >= 'A' && str[i] <= 'Z')
-            str[i] += 32;
-        if (str[i + 1] == ' ' || str[i + 1] == '\t')
+        while (av[1][i])
         {
-            if (str[i] >= 'a' && str[i] <= 'z')
-                str[i] -= 32;
+            if (av[1][i] >= 'a' && av[1][i] <= 'z')
+                av[1][i] = 'z' - av[1][i] + 'a';
+            else if (av[1][i] >= 'A' && av[1][i] <= 'Z')
+                av[1][i] = 'Z' - av[1][i] + 'A';
+            write(1, &av[1][i], 1);
+            i++;
         }
-        write(1, &str[i], 1);
-        i++;
     }
-}
-
-int main (int ac, char *av[])
-{
-    int i;
-    
-    i = 1;
-    if (ac == 1)
-        write(1, "\n", 1);
-    while (i < ac)
-    {
-        rstr_cap(av[i]);
-        i++;
-    }
+    write(1, "\n", 1);
     return (0);
 }

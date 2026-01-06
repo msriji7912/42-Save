@@ -1,48 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rstr_capitalizer.c                                 :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/01 13:27:10 by mosriji           #+#    #+#             */
-/*   Updated: 2026/01/06 16:39:23 by mosriji          ###   ########.fr       */
+/*   Created: 2026/01/06 10:48:07 by mosriji           #+#    #+#             */
+/*   Updated: 2026/01/06 10:52:20 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <unistd.h>
 
-void rstr_cap(char *str)
+int    ft_strcmp(char *s1, char *s2)
 {
     int i;
 
     i = 0;
-    while (str[i])
+    while (s1[i] || s2[i]) // don't mix it bro!
     {
-        if (str[i] >= 'A' && str[i] <= 'Z')
-            str[i] += 32;
-        if (str[i + 1] == ' ' || str[i + 1] == '\t')
-        {
-            if (str[i] >= 'a' && str[i] <= 'z')
-                str[i] -= 32;
-        }
-        write(1, &str[i], 1);
+        if (s1[i] != s2[i])
+            return (s1[i] - s2[i]);
         i++;
     }
+    return (0);
 }
 
-int main (int ac, char *av[])
+int main (void)
 {
-    int i;
-    
-    i = 1;
-    if (ac == 1)
-        write(1, "\n", 1);
-    while (i < ac)
-    {
-        rstr_cap(av[i]);
-        i++;
-    }
+    char *s1 = "aa";
+    char *s2 = "ba";
+    printf("%d", ft_strcmp(s1, s2));
     return (0);
 }

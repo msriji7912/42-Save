@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/01 13:27:10 by mosriji           #+#    #+#             */
-/*   Updated: 2026/01/06 16:39:23 by mosriji          ###   ########.fr       */
+/*   Created: 2026/01/06 11:44:14 by mosriji           #+#    #+#             */
+/*   Updated: 2026/01/06 11:53:19 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void rstr_cap(char *str)
     {
         if (str[i] >= 'A' && str[i] <= 'Z')
             str[i] += 32;
-        if (str[i + 1] == ' ' || str[i + 1] == '\t')
+        if (str[i] && (str[i+1] == ' ' || str[i+1] == '\t' || str[i+1] == '\0'))
         {
             if (str[i] >= 'a' && str[i] <= 'z')
                 str[i] -= 32;
@@ -32,10 +32,10 @@ void rstr_cap(char *str)
     }
 }
 
-int main (int ac, char *av[])
+int main(int ac, char *av[])
 {
     int i;
-    
+
     i = 1;
     if (ac == 1)
         write(1, "\n", 1);
