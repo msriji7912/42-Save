@@ -1,0 +1,36 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    12_Notes                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/12/29 09:30:34 by mosriji           #+#    #+#              #
+#    Updated: 2025/12/30 13:23:48 by mosriji          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+Complications:
+- Strcmp => apparently in the while it should be (s1[i] || s2[i]) either one should exist not
+            both
+- Strdup => X forget the tmps malloc
+- Strrev => Use the tmp wisely and in the main when you have a "[]" it means you can modify 
+            the str but when there is just a "*" it as a const
+- Strcspn => Remember: Be wise and practicall
+- Strspn => wtf I need to use a checking variable...
+- Strpbrk => We return => return((char *)&s1[i]) because 
+            s1[i] is a char (type char)
+            &s1[i] est ladresse de ce caractère (type char *)
+            And the cast (char *) because the fonction itself return a char w// the const
+- Max => Review it and relax I can handle it
+
+
+
+Questions:
+- Do_op => Does it actually need a .h ????
+
+
+To learn by heart:
+- Alpha_mirror => A oneshot but X forget the weird "formula":
+    [av[1][i] = 'Z' - av[1][i] + 'A']
+- Atoi => res = res * 10 + (str[i] - '0')

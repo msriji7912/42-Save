@@ -1,0 +1,18 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    12_Notes                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/12/29 08:33:23 by mosriji           #+#    #+#              #
+#    Updated: 2025/12/29 09:30:04 by mosriji          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+Complications:
+
+- Fizzbuzz => make sure the mini putnbr is right and test it
+- Repeat_alpha => [j < av[1][i] - 64] = compares the count
+                while [av[1][i] = av[1][i] - 64] = changes the character
+(- Strcpy => X forget the '\0')
