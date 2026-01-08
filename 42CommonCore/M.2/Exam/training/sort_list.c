@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/06 15:18:00 by mosriji           #+#    #+#             */
-/*   Updated: 2026/01/08 12:17:34 by mosriji          ###   ########.fr       */
+/*   Created: 2026/01/08 12:14:43 by mosriji           #+#    #+#             */
+/*   Updated: 2026/01/08 12:25:10 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,34 +28,32 @@ int ascending(int a, int b)
 
 t_list	*sort_list(t_list* lst, int (*cmp)(int, int))
 {
-    t_list *current;
+    t_list *current_1;
     t_list *current_2;
     int tmp;
-    int test;
+    int res;
     
-    current = lst;
+    current_1 = lst;
     current_2 = lst -> next;
-    while (current_2 -> next != NULL)
+    while (current_2 -> next != NULL) // the right cdt!!
     {
-        test = cmp (current -> data, current_2 -> data);
-        if (test == 1)
+        res = cmp (current_1 -> data, current_2 -> data);
+        if (res == 1)
         {
-             current = current -> next;
-             current_2 = current_2 -> next; 
+            current_1 = current_1->next;
+            current_2 = current_2->next;
         }
-        else 
+        else if (res == 0)
         {
-            tmp = current -> data;
-            current -> data = current_2 -> data;
-            current_2 -> data = tmp;
+            tmp = current_1->data;
+            current_1->data = current_2->data;
+            current_2->data = tmp;
 
-
-            current = lst;
-            current_2 = lst -> next;
+            current_1 = lst;
+            current_2 = lst -> next;     // restart from beginning
         }
     }
     return (0);
-    
 }
 
 int main(void)

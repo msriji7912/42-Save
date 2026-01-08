@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lcm.c                                              :+:      :+:    :+:   */
+/*   ft_list_foreach.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/04 09:04:55 by mosriji           #+#    #+#             */
-/*   Updated: 2026/01/08 14:39:35 by mosriji          ###   ########.fr       */
+/*   Created: 2026/01/08 14:41:47 by mosriji           #+#    #+#             */
+/*   Updated: 2026/01/08 14:44:01 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <unistd.h>
 
-unsigned int	lcm(unsigned int a, unsigned int b)
+typedef struct    s_list
 {
-	unsigned int n;
-	unsigned int res_gcd;
-	unsigned int save_a;
-	unsigned int save_b;
+    struct s_list *next;
+    void          *data;
+}                 t_list;
 
-	if (a == 0 || b == 0)
-		return (0);
+void    ft_list_foreach(t_list *begin_list, void (*f)(void *))
+{
+    t_list *current;
 
-	save_a = a;
-	save_b = b;
-
-	while (b != 0)
-	{
-		n = a % b;
-		a = b;
-		b = n;
-	}
-	res_gcd = a;
-	return ((save_a * save_b) / res_gcd);
+    current = begin_list;
+    while (current != NULL)
+    {
+        if(current->data != NULL)
+            f(current->data);
+        current = current->next;
+    }
 }

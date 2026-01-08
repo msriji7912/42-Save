@@ -6,14 +6,12 @@
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 10:32:54 by mosriji           #+#    #+#             */
-/*   Updated: 2026/01/07 16:45:48 by mosriji          ###   ########.fr       */
+/*   Updated: 2026/01/08 14:14:37 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <string.h>
 # include <stdio.h>
+# include <unistd.h>
 
 void	rostring(char *str)
 {

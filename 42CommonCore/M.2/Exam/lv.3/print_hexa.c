@@ -6,12 +6,9 @@
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 07:53:40 by mosriji           #+#    #+#             */
-/*   Updated: 2026/01/08 09:49:37 by mosriji          ###   ########.fr       */
+/*   Updated: 2026/01/08 14:39:02 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-//Write a program that takes a positive (or zero) number expressed in base 10,
-//and displays it in base 16 (lowercase letters) followed by a newline.
 
 # include <unistd.h>
 # include <stdlib.h>

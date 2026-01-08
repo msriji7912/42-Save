@@ -1,0 +1,22 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    review_of_the_page.txt                             :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2026/01/08 19:53:15 by mosriji           #+#    #+#              #
+#    Updated: 2026/01/08 20:17:59 by mosriji          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+Honestly I care about the aesthetic but I've done most of the work on that but now I don't want any 
+review on the what I'm doing only answer to my question (just for this answer please)
+
+Home page:
+-What do people put in there that I haven't put in my planner ? What could I put in there to make it 
+actually usefull and a good homepage
+-I'd love a pomodoro and a clock widget + a good citation I can change every month + forecast / meteo
++ prayer time + project count down + a cute gif
+
++ daily goals aesthetic list + daily routine cute tab + 2026 vision board

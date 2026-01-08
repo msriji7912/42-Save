@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lcm.c                                              :+:      :+:    :+:   */
+/*   pgcd.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/04 09:04:55 by mosriji           #+#    #+#             */
-/*   Updated: 2026/01/08 14:39:35 by mosriji          ###   ########.fr       */
+/*   Created: 2026/01/04 09:07:54 by mosriji           #+#    #+#             */
+/*   Updated: 2026/01/08 15:34:10 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <unistd.h>
+#include <stdlib.h>
 
-unsigned int	lcm(unsigned int a, unsigned int b)
+void	pgcd(int a, int b)
 {
-	unsigned int n;
-	unsigned int res_gcd;
-	unsigned int save_a;
-	unsigned int save_b;
+	int	n = a;
 
-	if (a == 0 || b == 0)
-		return (0);
-
-	save_a = a;
-	save_b = b;
-
-	while (b != 0)
+	while (n > 0)
 	{
-		n = a % b;
-		a = b;
-		b = n;
+		if (a % n == 0 && b % n == 0)
+		{
+			printf("%d", n);
+			return ;
+		}
+		--n;
 	}
-	res_gcd = a;
-	return ((save_a * save_b) / res_gcd);
+}
+
+int	main(int ac, char **av)
+{
+	if (ac == 3)
+		pgcd(atoi(av[1]), atoi(av[2]));
+	printf("\n");
 }

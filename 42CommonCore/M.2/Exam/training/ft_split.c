@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   split.c                                            :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/08 08:43:53 by mosriji           #+#    #+#             */
-/*   Updated: 2026/01/08 14:02:47 by mosriji          ###   ########.fr       */
+/*   Created: 2026/01/08 12:13:11 by mosriji           #+#    #+#             */
+/*   Updated: 2026/01/08 14:04:22 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,58 +55,53 @@ void free_tab(char **tab)
         free(tab[i]);
         i++;
     }
-    free(tab); //don't forget to free the whole tab at the end
+    free(tab);
 }
 
-char **split(char *str, char c)
+char **ft_split(char *str, char c)
 {
-    int i;
-    int j;
-    int x;
+    int i = 0;
+    int j = 0;
+    int x = 0;
     int words;
     char **tab;
 
-    i = 0;
-    j = 0;
-    x = 0;
     words = word_count(str, c);
-    tab = malloc (sizeof(char *) * words + 1);  // char etoile bc we are allocating tabs
+    tab = malloc(sizeof(char *) * words + 1);
     if (!tab)
         return (NULL);
-    while (i < words) // meh first condition
+    while(i < words)
     {
-        j = 0; // (moved it up)
-        while (str[x] && str[x] == c) // forgot this !!
+        while (str[x] && str[x] == c)
             x++;
         tab[i] = malloc (sizeof(char) * word_len(str, c) + 1);
         if (!tab)
             free_tab(tab);
-        while (str[x] && str[x] != c)
+        j = 0;
+        while (str[x] && str[x] != c) // using the right condition
         {
             tab[i][j] = str[x];
             j++;
             x++;
         }
-        tab[i][j] = '\0'; //end the sentence!
+        tab[i][j] = '\0';
         i++;
     }
-    tab[i] = NULL; // don't forget this!!
+    tab[i] = NULL;
     return (tab);
 }
 
-int main (void)
+int main(void)
 {
-    size_t	i = 0;
-	size_t	c = ' ';
-	char	*str = "mama mia";
-	char	**tab;
+    int i = 0;
+    char c = ' ';
+    char *str = "mama mia";
+    char **tab = ft_split(str, c);
 
-	tab = split(str, c);
-	while (tab[i])
-	{
-		printf("%s\n", tab[i]);
-		i++;
-	}
-	free_tab(tab);
-	return (0);
+    while (tab[i])
+    {
+        printf("%s\n", tab[i]); // use the /n at the end !!
+        i++;
+    }
+    return (0);
 }

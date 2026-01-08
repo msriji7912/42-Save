@@ -6,7 +6,7 @@
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/07 16:49:27 by mosriji           #+#    #+#             */
-/*   Updated: 2026/01/08 10:05:22 by mosriji          ###   ########.fr       */
+/*   Updated: 2026/01/08 14:15:21 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void rostring(char *str)
     flag = i;
     while (str[i])
     {
-        while (str[i] && str[i] != ' ' && str[i] != '\t') 
+        while (str[i] && str[i] != ' ' && str[i] != '\t')
             i++;
         while (str[i] && (str[i] == ' ' || str[i] == '\t'))
             i++;
@@ -46,16 +46,12 @@ void rostring(char *str)
     }
 }
 
-int main(int ac, char *av[])
+int	main(int ac, char **av)
 {
-    int i;
-
-    i = 1;
-    if (ac >= 2)
-    {
-        rostring(av[i]);
-        i++;
-    }
-    write(1, "\n", 1);
-    return (0);
+	if (ac >= 2)
+	{
+		rostring(av[1]);
+	}
+	write(1, "\n", 1);
+	return (0);
 }

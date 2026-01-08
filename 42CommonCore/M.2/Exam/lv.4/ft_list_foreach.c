@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   paramsum.c                                         :+:      :+:    :+:   */
+/*   ft_list_foreach.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/31 09:40:41 by mosriji           #+#    #+#             */
-/*   Updated: 2026/01/04 08:55:23 by mosriji          ###   ########.fr       */
+/*   Created: 2026/01/08 14:22:51 by mosriji           #+#    #+#             */
+/*   Updated: 2026/01/08 14:23:17 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-//Write a program that displays the number of arguments passed to it, followed by a newline.
 
 #include <stdio.h>
 #include <unistd.h>
 
-void mini_putchar(char c)
+typedef struct    s_list
 {
-    write(1, &c, 1);
-}
+    struct s_list *next;
+    void          *data;
+}                 t_list;
 
-void mini_putnbr(int nbr)
+void	ft_list_foreach(t_list *begin_list, void (*f)(void *))
 {
-    if (nbr > 9)
-        mini_putnbr (nbr / 10);
-    mini_putchar ((nbr % 10) + '0');
-}
-
-int main(int ac, char *av[])
-{
-    (void)av;
-    mini_putnbr(ac - 1);
-    write(1, "\n", 1);
-    return (0);
+	while (begin_list != NULL)
+	{
+		if (begin_list->data != NULL)
+			(*f)(begin_list->data);
+		begin_list = begin_list->next;
+	}
 }

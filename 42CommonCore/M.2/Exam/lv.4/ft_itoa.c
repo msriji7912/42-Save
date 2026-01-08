@@ -6,7 +6,7 @@
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 06:12:36 by mosriji           #+#    #+#             */
-/*   Updated: 2025/12/31 10:05:16 by mosriji          ###   ########.fr       */
+/*   Updated: 2026/01/08 14:31:35 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@ static int	count_nbr(size_t nbr)
 	nbrs = nbr;
 	if (nbrs < 0)
 		count = 1;
+
 	if (nbrs == 0)
 		return (1);
+
 	while (nbrs)
 	{
 		nbrs /= 10;
@@ -47,8 +49,10 @@ char	*ft_itoa(int n)
 		return (NULL);
 	save[count] = '\0';
 	count --;
+
 	if (nbr == 0)
 		return (save[0] = '0', save);
+
 	if (nbr < 0)
 	{
 		nbr *= -1;

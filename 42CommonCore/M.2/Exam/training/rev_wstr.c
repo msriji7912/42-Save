@@ -5,56 +5,44 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/31 10:42:17 by mosriji           #+#    #+#             */
-/*   Updated: 2026/01/08 11:59:19 by mosriji          ###   ########.fr       */
+/*   Created: 2026/01/08 11:34:59 by mosriji           #+#    #+#             */
+/*   Updated: 2026/01/08 12:10:08 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <string.h>
-# include <stdio.h>
+#include <stdio.h>
+#include <unistd.h>
 
-int	main(int ac, char **av)
+int main(int ac, char *av[])
 {
-	int	i;
-	int save;
+    int i;
+    int flag;
 
-	i = 0;
-	if (ac == 2)
-	{
-		while (av[1][i])
-			i++;
-		i--;
-		while (i >= 0) // ou alors av[1][i]
-		{
-            while (av[1][i] && (av[1][i] == ' ' || av[1][i] == '\t'))
+    i = 0;
+    flag = 0;
+    if (ac == 2)
+    {
+        while (av[1][i])
+            i++;
+        i--;
+        while(i > 0)
+        {
+            while (av[1][i] == ' ' || av[1][i] == '\t')
                 i--;
             while (av[1][i] && av[1][i] != ' ' && av[1][i] != '\t')
                 i--;
-            save = i;
+            flag = i;
             i++;
             while (av[1][i] && av[1][i] != ' ' && av[1][i] != '\t')
             {
                 write(1, &av[1][i], 1);
                 i++;
             }
-            i = save;
+            i = flag;
             if (i > 0)
                 write(1, " ", 1);
-		}
-	}
-	write(1, "\n", 1);
+        }
+    }
+    write(1, "\n", 1);
     return (0);
 }
-
-        // while (str[i] && str[i] != ' ' && str[i] != '\t')
-        // {
-        //     write(1, &str[i], 1);
-        //     i++;
-        // }
-        // if (i > 0)
-        // {
-        //     write(1, " ", 1);
-        //     i = flag;
-        // }
