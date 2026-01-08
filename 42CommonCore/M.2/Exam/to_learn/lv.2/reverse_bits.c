@@ -1,36 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   camel_to_snake.c                                   :+:      :+:    :+:   */
+/*   reverse_bits.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/06 10:03:28 by mosriji           #+#    #+#             */
-/*   Updated: 2026/01/06 10:07:50 by mosriji          ###   ########.fr       */
+/*   Created: 2025/12/30 13:30:17 by mosriji           #+#    #+#             */
+/*   Updated: 2025/12/30 13:30:26 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
-
-int main(int ac, char *av[])
+unsigned char	reverse_bits(unsigned char octet)
 {
-    int i;
-
-    i = 0;
-    if (ac == 2)
+    unsigned char res = 0;
+    unsigned int i = 8;
+    while(i--)
     {
-        while (av[1][i])
-        {
-            if (av[1][i] >= 'A' && av[1][i] <= 'Z')
-            {
-                av[1][i] += 32;
-                write(1, "_", 1);
-            }
-            write(1, &av[1][i], 1);
-            i++;
-        }
+        res = (res << 1) | (octet & 1);
+        octet = octet >> 1;
     }
-    write(1, "\n", 1);
-    return (0);
+    return(res);
 }

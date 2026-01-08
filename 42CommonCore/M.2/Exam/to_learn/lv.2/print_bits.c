@@ -1,35 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ulstr.c                                            :+:      :+:    :+:   */
+/*   print_bits.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/05 12:02:29 by mosriji           #+#    #+#             */
-/*   Updated: 2026/01/05 12:04:46 by mosriji          ###   ########.fr       */
+/*   Created: 2025/12/30 13:29:44 by mosriji           #+#    #+#             */
+/*   Updated: 2025/12/31 12:31:54 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
+#include<unistd.h>
 
-int main(int ac, char *av[])
+void	print_bits(unsigned char octet)
 {
-    int i;
-
-    i = 0;
-    if (ac == 2)
+    unsigned int i;
+    char bit;
+    
+    i = 8;
+    while(i--)
     {
-        while (av[1][i])
-        {
-            if (av[1][i] >= 'a' && av[1][i] <= 'z')
-                av[1][i] -= 32;
-            else if (av[1][i] >= 'A' && av[1][i] <= 'Z')
-                av[1][i] += 32;
-            write(1, &av[1][i], 1);
-            i++;
-        }
+        bit = (octet >> i & 1) + '0';
+        write(1, &bit, 1);
     }
-    write(1, "\n", 1);
-    return (0);
+}
+
+void	print_bits(unsigned char octet)
+{
+if (octet - 128 >= 0 && octet - 128 <= 128)
+{    
+    write (1 , "1", 1);
+    octet -= 128;
+}
+else 
+    write (1, "0", 1);
 }

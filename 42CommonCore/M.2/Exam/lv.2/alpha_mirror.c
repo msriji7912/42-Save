@@ -6,7 +6,7 @@
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 09:22:08 by mosriji           #+#    #+#             */
-/*   Updated: 2025/12/29 09:25:31 by mosriji          ###   ########.fr       */
+/*   Updated: 2026/01/08 09:15:38 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,11 @@ int main(int ac, char *av[])
     {
         while(av[1][i])
         {
-            if (av[1][i] >= 'A' && av[1][i] <= 'Z')
-            {
-                av[1][i] = 'Z' - av[1][i] + 'A';
-                write(1, &av[1][i], 1);
-            }
-            else if (av[1][i] >= 'a' && av[1][i] <= 'z')
-            {
+            if (av[1][i] >= 'a' && av[1][i] <= 'z')
                 av[1][i] = 'z' - av[1][i] + 'a';
-                write(1, &av[1][i], 1);
-            }
-            else
-                write(1, &av[1][i], 1);
+            else if (av[1][i] >= 'A' && av[1][i] <= 'Z')
+                av[1][i] = 'Z' - av[1][i] + 'A';
+            write(1, &av[1][i], 1);
             i++;
         }
     }

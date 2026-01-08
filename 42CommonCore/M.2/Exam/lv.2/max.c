@@ -6,7 +6,7 @@
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 14:20:18 by mosriji           #+#    #+#             */
-/*   Updated: 2025/12/30 12:20:48 by mosriji          ###   ########.fr       */
+/*   Updated: 2026/01/08 09:30:56 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 
 int		max(int* tab, unsigned int len)
 {
-    unsigned int i;
     int max;
+    unsigned int i;
 
     i = 0;
     if (len == 0 || !tab)
         return (0);
     max = tab[i];
-    while (i < len)
+    while (i <= len)
     {
-        if (tab[i] > max)
-            max = tab[i];
+        if (tab[i+1] > max)
+            max = tab[i+1];
         i++;
     }
     return (max);
@@ -33,7 +33,7 @@ int		max(int* tab, unsigned int len)
 
 int main(void)
 {
-    int tab[6] = {-984, 4684, 10000, 2, -42, 900000};
-    printf("hehe:%d", max(tab, 6));
-    return(0);
+    int tab[7] = {3, 6, 84, 999, 7912, 4, 9999};
+    printf("%d", max(tab, 7));
+    return (0);
 }

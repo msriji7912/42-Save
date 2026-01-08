@@ -6,7 +6,7 @@
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 09:01:26 by mosriji           #+#    #+#             */
-/*   Updated: 2026/01/04 10:04:03 by mosriji          ###   ########.fr       */
+/*   Updated: 2026/01/08 09:57:16 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,5 @@ int	main(int ac, char **av)
 		ft_tab_mult(ft_atoi(av[1]));
 	else
 		write(1, "\n", 1);
+	return (0);
 }

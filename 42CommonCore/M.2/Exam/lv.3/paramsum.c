@@ -6,7 +6,7 @@
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 09:40:41 by mosriji           #+#    #+#             */
-/*   Updated: 2026/01/04 08:55:23 by mosriji          ###   ########.fr       */
+/*   Updated: 2026/01/08 09:56:26 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ void mini_putnbr(int nbr)
 int main(int ac, char *av[])
 {
     (void)av;
-    mini_putnbr(ac - 1);
-    write(1, "\n", 1);
+    if (ac == 1)
+        write(1, "\n", 1);
+    else
+        mini_putnbr(ac);
     return (0);
 }

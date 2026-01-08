@@ -6,7 +6,7 @@
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 10:43:27 by mosriji           #+#    #+#             */
-/*   Updated: 2025/12/29 10:52:17 by mosriji          ###   ########.fr       */
+/*   Updated: 2026/01/08 09:20:52 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,22 @@ char    *ft_strdup(char *src)
 {
     int i;
     int len;
-    char *tmp;
+    char *dst;
 
     i = 0;
     len = 0;
     while (src[len])
         len++;
-    tmp = malloc(sizeof(char) * len + 1);
-    if (!tmp)
+    dst = malloc(sizeof(char) * len + 1);
+    if (!dst)
         return (NULL);
     while(src[i])
     {
-        tmp[i] = src[i];
+        dst[i] = src[i];
         i++;
     }
-    tmp[i] = '\0';
-    return (tmp);
+    dst[i] = '\0';
+    return (dst);
 }
 
 int main(void)

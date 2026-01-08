@@ -6,7 +6,7 @@
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 10:32:54 by mosriji           #+#    #+#             */
-/*   Updated: 2025/12/31 10:41:47 by mosriji          ###   ########.fr       */
+/*   Updated: 2026/01/07 16:45:48 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,18 @@ void	rostring(char *str)
 	int	j;
 
 	i = 0;
-	while (str[i] && str[i] == ' ' || str[i] == '\t') // on saute les \t et les tab
+	while (str[i] && str[i] == ' ' || str[i] == '\t') // skip spaces
 		i++;
-	j = i; // j pointe sur le DÉBUT du premier mot
+	j = i; // flag le j
 	while (str[i])
 	{
-        // Sauter le premier mot
-		while (str[i] && str[i] != ' ' && str[i] != '\t')
+		while (str[i] && str[i] != ' ' && str[i] != '\t') // skip first word
 			i++;
-        // Sauter les espaces
-		while (str[i] && (str[i] == ' ' || str[i] == '\t')) 
+		while (str[i] && (str[i] == ' ' || str[i] == '\t'))  // skip spaces
 			i++;
-
-        // Tant que j'ai une lettre et que just avant j'avais un espace ou un tab
-		while ((str[i] && (str[i] != ' ' && str[i] != '\t')) && (str[i- 1] == ' ' || str[i - 1] == '\t'))
+		while ((str[i] && (str[i] != ' ' && str[i] != '\t')) && (str[i- 1] == ' ' || str[i - 1] == '\t')) // letter et avant un espace
 		{
-            // Afficher les mots suivants
-			while (str[i] && (str[i] != ' ' && str[i] != '\t'))
+			while (str[i] && (str[i] != ' ' && str[i] != '\t')) // print next word
 			{
 				write(1, &str[i], 1);
 				i++;
@@ -46,8 +41,7 @@ void	rostring(char *str)
 			i++;
 		}
 	}
-    // Afficher le premier mot (sauvegardé par
-	while (str[j] && (str[j] != ' ' && str[j] != '\t'))
+	while (str[j] && (str[j] != ' ' && str[j] != '\t')) // print flag word
 	{
 		write(1, &str[j], 1);
 		j++;

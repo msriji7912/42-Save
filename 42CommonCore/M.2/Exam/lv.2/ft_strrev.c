@@ -6,7 +6,7 @@
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 11:17:35 by mosriji           #+#    #+#             */
-/*   Updated: 2025/12/29 11:38:59 by mosriji          ###   ########.fr       */
+/*   Updated: 2026/01/08 09:24:25 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,12 @@ char    *ft_strrev(char *str)
     len = 0;
     while (str[len])
         len++;
-    while (i < len - 1)
+    len--;
+    while (i <= len) // ou str[i]
     {
         tmp = str[i];
-        str[i] = str[len - 1];
-        str[len - 1] = tmp;
+        str[i] = str[len];
+        str[len] = tmp;
         i++;
         len--;
     }

@@ -6,7 +6,7 @@
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/03 16:08:49 by mosriji           #+#    #+#             */
-/*   Updated: 2026/01/04 08:11:52 by mosriji          ###   ########.fr       */
+/*   Updated: 2026/01/08 09:55:18 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int     *ft_rrange(int start, int end)
             end--;
         }
     }
-    else
+    else if (end < start)
     {
         wrdb = malloc(sizeof(int) * (start - end) + 1);
         if (!wrdb)
@@ -52,23 +52,23 @@ int     *ft_rrange(int start, int end)
 
 int main(void)
 {
-    int start = 9;
-    int end = -2;
-    int *result = ft_rrange(start, end);
+    int i;
     int size;
-    int i = 0;
-    
-    if (start > end)
-        size = start - end + 1;
+    int start = 15;
+    int end = -7;
+    int *tab = ft_rrange(start, end);
+
+    i = 0;
+    if (end > start)
+        size = end - start;
+    else if (start > end)
+        size = start - end;
     else
-        size = end - start + 1;
-    
+        return (0);
     while (i < size)
     {
-        printf("%d ", result[i]);
+        printf("%d\n", tab[i]);
         i++;
     }
-    
-    free(result);
     return (0);
 }

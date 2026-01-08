@@ -1,17 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi_base_mdr.c                                 :+:      :+:    :+:   */
+/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/31 08:06:38 by mosriji           #+#    #+#             */
-/*   Updated: 2025/12/31 09:01:36 by mosriji          ###   ########.fr       */
+/*   Created: 2025/12/31 08:14:18 by mosriji           #+#    #+#             */
+/*   Updated: 2025/12/31 09:08:27 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
-#include <stdlib.h>
 
 int ft_atoi_base(const char *str, int str_base)
 {
@@ -48,7 +45,6 @@ int ft_atoi_base(const char *str, int str_base)
         result = result * str_base + digit;
         i++;
     }
-    
     return (result * sign);
 }
 
