@@ -1,40 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/03 14:25:56 by mosriji           #+#    #+#             */
-/*   Updated: 2026/02/03 15:43:24 by mosriji          ###   ########.fr       */
+/*   Created: 2026/02/03 07:46:51 by mosriji           #+#    #+#             */
+/*   Updated: 2026/02/03 13:11:49 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef LIBFT_H
+# define LIBFT_H
 
-void swap(t_list *stack)
+# include <unistd.h>
+# include <stdlib.h>
+# include <string.h>
+# include <stdio.h>
+
+typedef struct t_list
 {
-	int hold;
-	t_list *tmp;
+	void			*content;
+    int             index;
+	struct t_list	*next;
+}	t_list;
 
-	tmp = stack->next;
-	hold = tmp->content;
-	tmp->content = stack->content;
-	stack->content = hold;
-}
 
-void swap_a(t_list *stack_a)
-{
-	swap(stack_a);
-}
 
-void swap_b(t_list *stack_b)
-{
-	swap(stack_b);
-}
-
-void swap_both(t_list *stack_a, t_list *stack_b)
-{
-	swap(stack_a);
-	swap(stack_b);
-}
+#endif
