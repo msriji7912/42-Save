@@ -5,13 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/03 07:46:51 by mosriji           #+#    #+#             */
-/*   Updated: 2026/02/03 13:11:49 by mosriji          ###   ########.fr       */
+/*   Created: 2026/02/04 14:45:38 by mosriji           #+#    #+#             */
+/*   Updated: 2026/02/04 19:55:57 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#ifndef PUSH_SWAP
+# define PUSH_SWAP
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -21,10 +21,13 @@
 typedef struct t_list
 {
 	void			*content;
-    int             index;
+    int				index;
 	struct t_list	*next;
-}	t_list;
+}		t_list;
 
+t_list	*new_node(int nbr);
+void	lst_add_back(t_list **lst, t_list *to_add);
+t_list	*stack_fill(int *tab, int size);
 
 
 #endif

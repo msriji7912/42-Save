@@ -1,40 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/03 15:44:22 by mosriji           #+#    #+#             */
-/*   Updated: 2026/02/04 14:43:58 by mosriji          ###   ########.fr       */
+/*   Created: 2025/11/07 08:00:28 by mosriji           #+#    #+#             */
+/*   Updated: 2026/02/04 18:36:56 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(t_list *stack)
+long	atol(const char *str)
 {
-	int		hold;
-	t_list	*tmp;
+	int		i;
+	int		res;
+	long	signe;
 
-	tmp = stack->next;
-	hold = tmp->content;
-	tmp->content = stack->content;
-	stack->content = hold;
-}
-
-void	swap_a(t_list *stack_a)
-{
-	swap (stack_a);
-}
-
-void	swap_b(t_list *stack_b)
-{
-	swap (stack_b);
-}
-
-void	swap_both(t_list *stack_a, t_list *stack_b)
-{
-	swap (stack_a);
-	swap (stack_b);
+	i = 0;
+	res = 0;
+	signe = 1;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '+' || str[i] == '-')
+	{
+		if (str[i] == '-')
+			signe *= -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		res = res * 10 + (str[i] - '0');
+		i++;
+	}
+	return (res * signe);
 }

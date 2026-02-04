@@ -6,11 +6,11 @@
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 07:44:57 by mosriji           #+#    #+#             */
-/*   Updated: 2026/02/03 13:13:35 by mosriji          ###   ########.fr       */
+/*   Updated: 2026/02/04 19:56:17 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 t_list	*new_node(int nbr)
 {
@@ -50,7 +50,7 @@ t_list	*stack_fill(int *tab, int size)
 	{
 		lst_add_back (&stack_a, new_node(tab[i]));
 		i++;
-	}
+	}	
 	return (stack_a);
 }
 

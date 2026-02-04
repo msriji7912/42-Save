@@ -6,35 +6,30 @@
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 14:25:56 by mosriji           #+#    #+#             */
-/*   Updated: 2026/02/03 15:43:24 by mosriji          ###   ########.fr       */
+/*   Updated: 2026/02/04 14:39:00 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void swap(t_list *stack)
+void	push(t_list **pushed, t_list **dest)
 {
-	int hold;
-	t_list *tmp;
+	t_list	*pushed_first;
+	t_list	*pushed_second;
 
-	tmp = stack->next;
-	hold = tmp->content;
-	tmp->content = stack->content;
-	stack->content = hold;
+	pushed_second = (*pushed)->next;
+	pushed_first = *pushed;
+	pushed_first->next = *dest;
+	*dest = pushed_first;
+	*pushed = pushed_second;
 }
 
-void swap_a(t_list *stack_a)
+void	push_a(t_list **stack_a, t_list **stack_b)
 {
-	swap(stack_a);
+	push (stack_a, stack_b);
 }
 
-void swap_b(t_list *stack_b)
+void	push_b(t_list **stack_b, t_list **stack_a)
 {
-	swap(stack_b);
-}
-
-void swap_both(t_list *stack_a, t_list *stack_b)
-{
-	swap(stack_a);
-	swap(stack_b);
+	push(stack_b, stack_a);
 }
