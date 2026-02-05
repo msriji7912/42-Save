@@ -6,7 +6,7 @@
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:16:47 by mosriji           #+#    #+#             */
-/*   Updated: 2026/02/04 14:41:15 by mosriji          ###   ########.fr       */
+/*   Updated: 2026/02/05 13:42:56 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,21 @@ void	reverse(t_list **stack)
 
 void	reverse_a(t_list **stack_a)
 {
-	reverse (stack_a);
+	reverse(stack_a);
+	ft_putstr("rra");
 }
 
 void	reverse_b(t_list **stack_b)
 {
-	reverse (stack_b);
+	reverse(stack_b);
+	ft_putstr("rrb");
 }
 
 void	rev_rev(t_list **stack_a, t_list **stack_b)
 {
-	reverse_a (stack_a);
-	reverse_b (stack_b);
+	if (!stack_a || !stack_b)
+		return ;
+	reverse_a(stack_a);
+	reverse_b(stack_b);
+	ft_putstr("rrr");
 }

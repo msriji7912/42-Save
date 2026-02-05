@@ -6,7 +6,7 @@
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 14:25:56 by mosriji           #+#    #+#             */
-/*   Updated: 2026/02/04 14:39:00 by mosriji          ###   ########.fr       */
+/*   Updated: 2026/02/05 13:41:51 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,12 @@ void	push(t_list **pushed, t_list **dest)
 
 void	push_a(t_list **stack_a, t_list **stack_b)
 {
-	push (stack_a, stack_b);
+	push(stack_a, stack_b);
+	ft_putstr("pa");
 }
 
 void	push_b(t_list **stack_b, t_list **stack_a)
 {
 	push(stack_b, stack_a);
+	ft_putstr("pb");
 }

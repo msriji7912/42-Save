@@ -1,48 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   long_range.c                                       :+:      :+:    :+:   */
+/*   is_sorted.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/07 08:00:28 by mosriji           #+#    #+#             */
-/*   Updated: 2026/02/05 12:44:25 by mosriji          ###   ########.fr       */
+/*   Created: 2026/02/05 13:25:15 by mosriji           #+#    #+#             */
+/*   Updated: 2026/02/05 13:34:41 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-long	atol(const char *str)
+int	is_sorted (t_list *stack_a, int size)
 {
-	int		i;
-	int		signe;
-	long	res;
+	int i;
+	t_list *current;
+	t_list *after_current;
 
 	i = 0;
-	res = 0;
-	signe = 1;
-	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
-		i++;
-	if (str[i] == '+' || str[i] == '-')
+	current = stack_a;
+	after_current = stack_a->next;
+	while (i < size)
 	{
-		if (str[i] == '-')
-			signe *= -1;
+		if (current->index > after_current->index)
+			return (0);
 		i++;
+		current = current->next;
+		after_current = after_current->next;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		res = res * 10 + (str[i] - '0');
-		i++;
-	}
-	return (res * signe);
-}
-
-int	is_range(long nbr)
-{
-	if (nbr > INT_MAX)
-		return (1);
-	else if (nbr < INT_MIN)
-		return (1);
-	else
-		return (0);
+	return (1);
 }

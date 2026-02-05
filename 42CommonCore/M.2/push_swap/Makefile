@@ -6,7 +6,7 @@
 #    By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/03 07:46:37 by mosriji           #+#    #+#              #
-#    Updated: 2026/02/05 11:25:22 by mosriji          ###   ########.fr        #
+#    Updated: 2026/02/05 13:23:48 by mosriji          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,10 +18,15 @@ INCLUDES	=	-I.
 
 SRCS		= stack/parsing.c \
 				stack/stack_fill.c \
+				stack/put_index.c \
 				tools/errors.c \
 				tools/ft_split.c \
 				tools/long_range.c \
 				tools/parsing_utils.c \
+				operations/push.c \
+				operations/reverse.c \
+				operations/rotate.c \
+				operations/swap.c \
 				main.c
 
 all: $(NAME)

@@ -1,45 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   specific_cases.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/03 15:44:22 by mosriji           #+#    #+#             */
-/*   Updated: 2026/02/05 13:43:31 by mosriji          ###   ########.fr       */
+/*   Created: 2026/02/05 13:30:32 by mosriji           #+#    #+#             */
+/*   Updated: 2026/02/05 13:49:59 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(t_list *stack)
+t_list *is_two(t_list *stack_a)
 {
-	int		hold;
-	t_list	*tmp;
-
-	tmp = stack->next;
-	hold = tmp->content;
-	tmp->content = stack->content;
-	stack->content = hold;
-}
-
-void	swap_a(t_list *stack_a)
-{
-	swap(stack_a);
-	ft_putstr("sa");
-}
-
-void	swap_b(t_list *stack_b)
-{
-	swap(stack_b);
-	ft_putstr("sb");
-}
-
-void	swap_both(t_list *stack_a, t_list *stack_b)
-{
-	if (!stack_a || !stack_b)
-		return ;
 	swap_a(stack_a);
-	swap_b(stack_b);
-	ft_putstr("ss");
+	return(stack_a);
+}
+
+t_list *is_three(t_list *stack_a)
+{
+    t_list *first;
+	t_list *second;
+	t_list *third;
+	
+	first = stack_a;
+	second = stack_a->next; 
+	third = stack_a->next->next;
+	if (!is_sorted(stack_a))
+	{
+		
+	}
+}
+
+t_list *is_four(t_list *stack_a)
+{
+    
+}
+
+t_list *is_five(t_list *stack_a)
+{
+    
 }

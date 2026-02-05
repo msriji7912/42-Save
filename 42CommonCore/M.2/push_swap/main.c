@@ -6,7 +6,7 @@
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 09:37:08 by mosriji           #+#    #+#             */
-/*   Updated: 2026/02/05 11:13:08 by mosriji          ###   ########.fr       */
+/*   Updated: 2026/02/05 13:21:37 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,25 @@ int	main(int ac, char *av[])
 	char	**tab;
 	t_list	*stack_a;
 
+	if (ac < 2)
+		return (0);
+	tab = prep_stack(ac, av);
+	if (!tab)
+		return (1);
+	stack_a = parsing(tab);
+	if (!stack_a)
+		return (1);
+	print_list(stack_a);
+	free_stack(stack_a);
+	return (0);
+}
+
+/*
+int	main(int ac, char *av[])
+{
+	char	**tab;
+	t_list	*stack_a;
+
 	tab = NULL;
 	tab = prep_stack(ac, av);
 	stack_a = parsing(tab);
@@ -51,3 +70,4 @@ int	main(int ac, char *av[])
 	free_stack(stack_a);
 	return (0);
 }
+*/
