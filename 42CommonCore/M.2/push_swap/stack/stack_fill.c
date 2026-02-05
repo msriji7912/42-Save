@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Stack_fill.c                                       :+:      :+:    :+:   */
+/*   stack_fill.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 07:44:57 by mosriji           #+#    #+#             */
-/*   Updated: 2026/02/04 19:56:17 by mosriji          ###   ########.fr       */
+/*   Updated: 2026/02/05 11:16:02 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 t_list	*new_node(int nbr)
 {
@@ -48,13 +48,8 @@ t_list	*stack_fill(int *tab, int size)
 	stack_a = NULL;
 	while (i < size)
 	{
-		lst_add_back (&stack_a, new_node(tab[i]));
+		lst_add_back(&stack_a, new_node(tab[i]));
 		i++;
-	}	
+	}
 	return (stack_a);
 }
-
-//my parsing returns a tab + size
-// fill my stack with the tab
-// must initialize the stack before anything
-//must give the adress of the stack cuz using a **

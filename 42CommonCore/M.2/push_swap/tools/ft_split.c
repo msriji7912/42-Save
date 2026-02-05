@@ -6,13 +6,13 @@
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 00:58:41 by mosriji           #+#    #+#             */
-/*   Updated: 2026/02/03 13:46:32 by mosriji          ###   ########.fr       */
+/*   Updated: 2026/02/05 11:11:23 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	count_words(const char	*str, char c)
+int	count_words(const char *str, char c)
 {
 	size_t	i;
 	size_t	words;
@@ -33,7 +33,7 @@ static int	count_words(const char	*str, char c)
 	return (words);
 }
 
-static int	word_len(const char	*str, char c)
+int	word_len(const char *str, char c)
 {
 	size_t	i;
 
@@ -43,7 +43,7 @@ static int	word_len(const char	*str, char c)
 	return (i);
 }
 
-static void	free_tab(char **tab)
+void	free_tab(char **tab)
 {
 	int	i;
 
@@ -66,7 +66,7 @@ char	**ft_split(char const *str, char c)
 
 	i = 0;
 	words = count_words(str, c);
-	tab = malloc (sizeof(char *) * (words + 1));
+	tab = malloc(sizeof(char *) * (words + 1));
 	if (!tab)
 		return (NULL);
 	while (i < words)
@@ -74,7 +74,7 @@ char	**ft_split(char const *str, char c)
 		j = 0;
 		while (*str && *str == c)
 			str++;
-		tab[i] = malloc (sizeof(char) * word_len(str, c) + 1);
+		tab[i] = malloc(sizeof(char) * word_len(str, c) + 1);
 		if (!tab[i])
 			return (free_tab(tab), NULL);
 		while (*str && *str != c)
