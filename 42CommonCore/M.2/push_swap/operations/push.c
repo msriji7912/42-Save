@@ -6,11 +6,19 @@
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 14:25:56 by mosriji           #+#    #+#             */
-/*   Updated: 2026/02/05 13:41:51 by mosriji          ###   ########.fr       */
+/*   Updated: 2026/02/06 12:09:26 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	lst_add_front(t_list **stack , t_list *added)
+{
+	if (!*stack || !stack || added)
+		return (1);
+	added->next = *stack;
+	*stack = added;
+}
 
 void	push(t_list **pushed, t_list **dest)
 {
@@ -24,14 +32,15 @@ void	push(t_list **pushed, t_list **dest)
 	*pushed = pushed_second;
 }
 
-void	push_a(t_list **stack_a, t_list **stack_b)
+void	push_a(t_list **stack_b, t_list **stack_a)
 {
-	push(stack_a, stack_b);
-	ft_putstr("pa");
+	
+	push(stack_b, stack_a);
+	ft_putstr("pa\n");
 }
 
-void	push_b(t_list **stack_b, t_list **stack_a)
+void	push_b(t_list **stack_a, t_list **stack_b)
 {
-	push(stack_b, stack_a);
-	ft_putstr("pb");
+	push(stack_a, stack_b);
+	ft_putstr("pb\n");
 }

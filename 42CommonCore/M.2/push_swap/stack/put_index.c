@@ -6,13 +6,12 @@
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 11:52:06 by mosriji           #+#    #+#             */
-/*   Updated: 2026/02/05 13:21:13 by mosriji          ###   ########.fr       */
+/*   Updated: 2026/02/06 11:34:23 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// almost just the return wasn't right
 void	initialize_index(t_list *stack_a)
 {
 	t_list	*current;
@@ -24,9 +23,6 @@ void	initialize_index(t_list *stack_a)
 		current = current->next;
 	}
 }
-
-// check the -1
-// compare with the forward
 
 t_list	*min_finder(t_list *stack_a)
 {
@@ -64,15 +60,15 @@ int	lst_size(t_list *stack_a)
 	return (size);
 }
 
-// collect the min
-// assign the index
-
-void	assign_index(t_list *stack_a, int size)
+void	assign_index(t_list *stack_a)
 {
 	int		i;
+	int		size;
 	t_list	*actual_min;
 
 	i = 0;
+	size = lst_size(stack_a);
+	initialize_index(stack_a);
 	while (i < size)
 	{
 		actual_min = min_finder(stack_a);

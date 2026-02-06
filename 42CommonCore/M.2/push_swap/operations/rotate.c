@@ -6,7 +6,7 @@
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:34:44 by mosriji           #+#    #+#             */
-/*   Updated: 2026/02/05 13:43:13 by mosriji          ###   ########.fr       */
+/*   Updated: 2026/02/06 11:23:50 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ void	rotate(t_list **stack)
 void	rotate_a(t_list **stack_a)
 {
 	rotate(stack_a);
-	ft_putstr("ra");
+	ft_putstr("ra\n");
 }
 
 void	rotate_b(t_list **stack_b)
 {
 	rotate(stack_b);
-	ft_putstr("rb");
+	ft_putstr("rb\n");
 }
 
 void	rotate_rotate(t_list **stack_a, t_list **stack_b)
@@ -46,5 +46,5 @@ void	rotate_rotate(t_list **stack_a, t_list **stack_b)
 		return ;
 	rotate(stack_a);
 	rotate(stack_b);
-	ft_putstr("rr");
+	ft_putstr("rr\n");
 }
