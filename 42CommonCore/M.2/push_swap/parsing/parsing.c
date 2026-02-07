@@ -6,7 +6,7 @@
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 16:33:26 by mosriji           #+#    #+#             */
-/*   Updated: 2026/02/07 09:33:22 by mosriji          ###   ########.fr       */
+/*   Updated: 2026/02/07 19:45:27 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ char	**prep_stack(int ac, char *av[])
 	char	**tab;
 
 	tmp_str = join_arg(ac, av);
+	if (!tmp_str)
+		return (NULL);
 	tab = ft_split(tmp_str, ' ');
 	if (!tab)
 		return (NULL);

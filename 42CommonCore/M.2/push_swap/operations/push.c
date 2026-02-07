@@ -6,7 +6,7 @@
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 14:25:56 by mosriji           #+#    #+#             */
-/*   Updated: 2026/02/07 09:01:13 by mosriji          ###   ########.fr       */
+/*   Updated: 2026/02/07 19:10:44 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,3 @@ void	push_b(t_list **stack_a, t_list **stack_b)
 	push(stack_a, stack_b);
 	ft_putstr("pb\n");
 }
-
-/*
-void	lst_add_front(t_list **stack , t_list *added)
-{
-	if (!stack || !added)
-		return (1);
-	added->next = *stack;
-	*stack = added;
-}
-*/

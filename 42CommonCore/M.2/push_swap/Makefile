@@ -6,7 +6,7 @@
 #    By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/03 07:46:37 by mosriji           #+#    #+#              #
-#    Updated: 2026/02/07 11:07:36 by mosriji          ###   ########.fr        #
+#    Updated: 2026/02/07 18:59:12 by mosriji          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ SRCS		= operations/push.c \
 				tools/errors.c \
 				tools/ft_split.c \
 				tools/long_range.c \
-				final_supposed_product.c \
+				radix.c \
 				main.c
 
 all: $(NAME)
