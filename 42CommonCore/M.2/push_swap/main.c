@@ -6,7 +6,7 @@
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 09:37:08 by mosriji           #+#    #+#             */
-/*   Updated: 2026/02/06 12:33:46 by mosriji          ###   ########.fr       */
+/*   Updated: 2026/02/07 09:47:16 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	free_stack(t_list *stack_a)
 	t_list	*current;
 	t_list	*previous;
 
+	if (!stack_a)
+		return ;
 	current = stack_a;
 	previous = stack_a;
 	while (current != NULL)
@@ -39,10 +41,11 @@ void	print_list(t_list *stack_a)
 	}
 }
 
-void pick_algo(t_list **stack_a)
+void	pick_algo(t_list **stack_a, t_list **stack_b)
 {
-		assign_index(*stack_a);
+	int	size;
 
+	assign_index(*stack_a);
 	if (!is_sorted(*stack_a))
 	{
 		size = lst_size(*stack_a);
@@ -61,7 +64,6 @@ void pick_algo(t_list **stack_a)
 
 int	main(int ac, char *av[])
 {
-	int		size;
 	char	**tab;
 	t_list	**stack_a;
 	t_list	**stack_b;
@@ -69,7 +71,9 @@ int	main(int ac, char *av[])
 	stack_a = malloc(sizeof(t_list **));
 	if (!stack_a)
 		return (1);
-	stack_b = NULL;
+	stack_b = malloc(sizeof(t_list **));
+	if (!stack_b)
+		return (1);
 	if (ac < 2)
 		return (0);
 	tab = prep_stack(ac, av);
@@ -78,10 +82,10 @@ int	main(int ac, char *av[])
 	*stack_a = parsing(tab);
 	if (!*stack_a)
 		return (free(stack_a), 1);
-	
-	print_list(*stack_a);
+	pick_algo(stack_a, stack_b);
+	// print_list(*stack_a);
 	free_stack(*stack_a);
-	free (stack_a);
+	free(stack_a);
 	return (0);
 }
 

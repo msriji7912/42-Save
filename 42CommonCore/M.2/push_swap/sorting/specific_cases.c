@@ -6,7 +6,7 @@
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 13:30:32 by mosriji           #+#    #+#             */
-/*   Updated: 2026/02/06 11:29:23 by mosriji          ###   ########.fr       */
+/*   Updated: 2026/02/07 09:45:38 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	is_four(t_list **stack_a, t_list **stack_b)
 {
 	min_to_top_4(stack_a);
 	push_b(stack_a, stack_b);
+	assign_index(*stack_a);
 	is_three(stack_a);
 	push_a(stack_b, stack_a);
 }
@@ -56,8 +57,10 @@ void	is_five(t_list **stack_a, t_list **stack_b)
 {
 	min_to_top_5(stack_a);
 	push_b(stack_a, stack_b);
+	assign_index(*stack_a);
 	min_to_top_4(stack_a);
 	push_b(stack_a, stack_b);
+	assign_index(*stack_a);
 	is_three(stack_a);
 	push_a(stack_b, stack_a);
 	push_a(stack_b, stack_a);
