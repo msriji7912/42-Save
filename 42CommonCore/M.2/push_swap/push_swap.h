@@ -6,7 +6,7 @@
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 14:45:38 by mosriji           #+#    #+#             */
-/*   Updated: 2026/02/06 11:38:41 by mosriji          ###   ########.fr       */
+/*   Updated: 2026/02/07 11:50:18 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,5 +101,11 @@ char				**ft_split(char const *str, char c);
 // Range
 long				atol(const char *str);
 int					is_range(long nbr);
+
+// tmp answer //
+int					get_max_bits(int size);
+void				sort_by_bit(t_list **stack_a, t_list **stack_b,
+						int bit_index);
+void				radix_sort(t_list **stack_a, t_list **stack_b);
 
 #endif
