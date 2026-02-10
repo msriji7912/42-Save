@@ -6,7 +6,7 @@
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 00:58:41 by mosriji           #+#    #+#             */
-/*   Updated: 2026/02/07 18:58:25 by mosriji          ###   ########.fr       */
+/*   Updated: 2026/02/10 11:34:49 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ void	free_tab(char **tab)
 	int	i;
 
 	i = 0;
+	if (!tab)
+		return ;
 	while (tab[i])
 	{
 		free(tab[i]);

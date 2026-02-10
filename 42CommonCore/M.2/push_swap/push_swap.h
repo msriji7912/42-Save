@@ -6,7 +6,7 @@
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 14:45:38 by mosriji           #+#    #+#             */
-/*   Updated: 2026/02/07 19:27:23 by mosriji          ###   ########.fr       */
+/*   Updated: 2026/02/10 12:03:44 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,8 @@ void				initialize_index(t_list *stack_a);
 t_list				*min_finder(t_list *stack_a);
 int					lst_size(t_list *stack_a);
 void				assign_index(t_list *stack_a);
-// Stack filling
+
+/*     Stack filling    */
 t_list				*new_node(int nbr);
 void				lst_add_back(t_list **lst, t_list *to_add);
 t_list				*stack_fill(int *tab, int size);
@@ -93,21 +94,29 @@ t_list				*stack_fill(int *tab, int size);
 // Error
 void				ft_putstr(char *str);
 void				error_msg(void);
+
 // Split
 int					count_words(const char *str, char c);
 int					word_len(const char *str, char c);
 void				free_tab(char **tab);
 char				**ft_split(char const *str, char c);
-// Range
+
+// Long Range
 long				atol(const char *str);
 int					is_range(long nbr);
 
-// tmp answer //
+/*		RADIX HEHE       */
 int					get_max_bits(int size);
 void				sort_by_bit(t_list **stack_a, t_list **stack_b,
 						int bit_index);
 void				radix_sort(t_list **stack_a, t_list **stack_b);
 
-int if_is_only_space(char *str);
+/*   MAIN    */
+// tools
+int					if_is_only_space(char *str);
+void				free_stack(t_list *stack_a);
+void				pick_algo(t_list **stack_a, t_list **stack_b);
+
+// actual main
 
 #endif
