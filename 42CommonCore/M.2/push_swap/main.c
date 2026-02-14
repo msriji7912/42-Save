@@ -6,7 +6,7 @@
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 09:37:08 by mosriji           #+#    #+#             */
-/*   Updated: 2026/02/10 12:05:23 by mosriji          ###   ########.fr       */
+/*   Updated: 2026/02/10 13:34:02 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	if_is_only_space(char *str)
 	}
 	return (1);
 }
+
 void	pick_algo(t_list **stack_a, t_list **stack_b)
 {
 	int	size;
@@ -61,12 +62,9 @@ void	pick_algo(t_list **stack_a, t_list **stack_b)
 	}
 }
 
-int	main(int ac, char *av[])
+int	checkings(int ac, char *av[])
 {
-	char	**tab;
-	t_list	**stack_a;
-	t_list	**stack_b;
-	int		w;
+	int	w;
 
 	w = 1;
 	if (ac < 2)
@@ -77,13 +75,22 @@ int	main(int ac, char *av[])
 			return (error_msg(), 1);
 		w++;
 	}
+	return (0);
+}
+
+int	main(int ac, char *av[])
+{
+	char	**tab;
+	t_list	**stack_a;
+	t_list	**stack_b;
+
+	if (checkings(ac, av))
+		return (1);
 	stack_a = malloc(sizeof(t_list *));
-	if (!stack_a)
-		return (1);
-	*stack_a = NULL;
 	stack_b = malloc(sizeof(t_list *));
-	if (!stack_b)
-		return (1);
+	if (!stack_a || !stack_b)
+		return (free(stack_a), free(stack_b), 1);
+	*stack_a = NULL;
 	*stack_b = NULL;
 	tab = prep_stack(ac, av);
 	if (!tab)

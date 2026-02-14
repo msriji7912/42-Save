@@ -6,7 +6,7 @@
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 14:45:38 by mosriji           #+#    #+#             */
-/*   Updated: 2026/02/10 12:03:44 by mosriji          ###   ########.fr       */
+/*   Updated: 2026/02/10 13:33:15 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,11 +112,10 @@ void				sort_by_bit(t_list **stack_a, t_list **stack_b,
 void				radix_sort(t_list **stack_a, t_list **stack_b);
 
 /*   MAIN    */
-// tools
-int					if_is_only_space(char *str);
-void				free_stack(t_list *stack_a);
-void				pick_algo(t_list **stack_a, t_list **stack_b);
-
 // actual main
+void				free_stack(t_list *stack_a);
+int					if_is_only_space(char *str);
+void				pick_algo(t_list **stack_a, t_list **stack_b);
+int					checkings(int ac, char *av[]);
 
 #endif
