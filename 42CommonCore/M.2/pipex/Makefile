@@ -6,7 +6,7 @@
 #    By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/14 09:34:34 by mosriji           #+#    #+#              #
-#    Updated: 2026/02/14 11:05:22 by mosriji          ###   ########.fr        #
+#    Updated: 2026/02/14 15:25:33 by mosriji          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,8 @@ CFLAGS		=	-Wall -Wextra -Werror -g
 INCLUDES	=	-I.
    
 SRCS = parsing.c \
+		tools/utils.c \
+		tools/ft_split.c \
 		error_bro.c
 
 all: $(NAME)

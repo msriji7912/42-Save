@@ -6,7 +6,7 @@
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 09:20:30 by mosriji           #+#    #+#             */
-/*   Updated: 2026/02/07 18:58:22 by mosriji          ###   ########.fr       */
+/*   Updated: 2026/02/14 16:00:46 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_putstr(char *str)
 	i = 0;
 	while (str[i])
 	{
-		write(1, &str[i], 1);
+		write(2, &str[i], 1);
 		i++;
 	}
 }
