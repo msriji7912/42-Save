@@ -6,7 +6,7 @@
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/14 09:48:55 by mosriji           #+#    #+#             */
-/*   Updated: 2026/02/15 13:39:38 by mosriji          ###   ########.fr       */
+/*   Updated: 2026/02/15 15:47:07 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,26 @@ char	*ft_strjoin(char *s1, char *s2)
 		str[i++] = s2[j++];
 	str[i] = '\0';
 	return (str);
+}
+
+char	*ft_strdup(const char *s)
+{
+	char	*dup;
+	size_t	len;
+	int		i;
+
+	i = 0;
+	len = 0;
+	while (s[len])
+		len++;
+	dup = malloc(sizeof(char) * len + 1);
+	if (!dup)
+		return (NULL);
+	while (s[i])
+	{
+		dup[i] = s[i];
+		i++;
+	}
+	dup[i] = '\0';
+	return (dup);
 }

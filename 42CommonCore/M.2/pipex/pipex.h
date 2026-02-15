@@ -6,7 +6,7 @@
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/14 09:33:33 by mosriji           #+#    #+#             */
-/*   Updated: 2026/02/15 13:18:06 by mosriji          ###   ########.fr       */
+/*   Updated: 2026/02/15 15:55:38 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,18 @@ char		**ft_split(char const *str, char c);
 int			ft_strlen(char *str);
 int			ft_strncmp(char *s1, char *s2, size_t n);
 char		*ft_strjoin(char *s1, char *s2);
+char		*ft_strdup(const char *s);
 
 /*       PIPEX        */
+// PIPEX UTILS
 void		error_exit(char *mess);
 char		*find_path(char **cmd, char **envp);
-int			command_check(char *cmd1, char *cmd2, char **envp);
-void		commmand_executer(char *cmd, char **envp);
+void		exec_enfant_1(char *cmd, char **envp);
+void		exec_enfant_2(char *cmd, char **envp);
+
+// PIPEX MOUHAHAH
+pid_t		enfant_1(t_pipex *folder, char *av[], char **envp);
+pid_t		enfant_2(t_pipex *folder, char *av[], char **envp);
+void		parent(t_pipex *folder, pid_t pid1, pid_t pid2);
 
 #endif
