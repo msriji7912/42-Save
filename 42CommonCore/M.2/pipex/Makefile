@@ -6,7 +6,7 @@
 #    By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/14 09:34:34 by mosriji           #+#    #+#              #
-#    Updated: 2026/02/14 15:25:33 by mosriji          ###   ########.fr        #
+#    Updated: 2026/02/15 10:48:37 by mosriji          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,9 @@ CC			=	cc
 CFLAGS		=	-Wall -Wextra -Werror -g
 INCLUDES	=	-I.
    
-SRCS = parsing.c \
+SRCS = tools/ft_split.c \
 		tools/utils.c \
-		tools/ft_split.c \
-		error_bro.c
+		pipex.c
 
 all: $(NAME)
 
