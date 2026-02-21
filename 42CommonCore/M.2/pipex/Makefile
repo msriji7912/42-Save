@@ -6,7 +6,7 @@
 #    By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/14 09:34:34 by mosriji           #+#    #+#              #
-#    Updated: 2026/02/15 14:40:20 by mosriji          ###   ########.fr        #
+#    Updated: 2026/02/21 00:54:21 by mosriji          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ INCLUDES	=	-I.
    
 SRCS = tools/ft_split.c \
 		tools/utils.c \
+		error_mess.c \
 		pipex_utils.c \
 		pipex.c
 

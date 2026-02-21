@@ -6,16 +6,19 @@
 /*   By: mosriji <mosriji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 14:37:04 by mosriji           #+#    #+#             */
-/*   Updated: 2026/02/15 15:58:07 by mosriji          ###   ########.fr       */
+/*   Updated: 2026/02/21 01:26:07 by mosriji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	error_exit(char *mess)
+void	full_error_cmd2(char *mess, t_pipex *folder)
 {
 	perror(mess);
-	exit(1);
+	safe_closing(folder->infile);
+	safe_closing(folder->outfile);
+	free(folder);
+	exit(127);
 }
 
 char	*find_path(char **cmd, char **envp)
@@ -47,47 +50,47 @@ char	*find_path(char **cmd, char **envp)
 	return (free_tab(path), NULL);
 }
 
-void	exec_enfant_1(char *cmd, char **envp)
+void	exec_enfant_1(char *cmd, char **envp, t_pipex *folder)
 {
 	char	*path;
 	char	**arg;
 
 	arg = ft_split(cmd, ' ');
 	if (!arg || !arg[0])
-		error_exit("argument issue");
+		full_error("argument issue", folder);
 	path = find_path(arg, envp);
 	if (!path)
 	{
 		free_tab(arg);
-		error_exit("No path");
+		full_error("No path", folder);
 	}
 	if (execve(path, arg, envp) == -1)
 	{
 		free(path);
 		free_tab(arg);
 		write(2, "Execution issue", 16);
-		exit(127);
+		exit(0);
 	}
 }
 
-void	exec_enfant_2(char *cmd, char **envp)
+void	exec_enfant_2(char *cmd, char **envp, t_pipex *folder)
 {
 	char	*path;
 	char	**arg;
 
 	arg = ft_split(cmd, ' ');
 	if (!arg || !arg[0])
-		error_exit("argument issue");
+		full_error_cmd2("argument issue", folder);
 	path = find_path(arg, envp);
 	if (!path)
 	{
 		free_tab(arg);
-		error_exit("No path");
+		full_error_cmd2("No path", folder);
 	}
 	if (execve(path, arg, envp) == -1)
 	{
 		free(path);
 		free_tab(arg);
-		error_exit("Execution issue");
+		full_error_cmd2("Execution issue", folder);
 	}
 }
